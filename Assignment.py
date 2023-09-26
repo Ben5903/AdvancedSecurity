@@ -50,14 +50,16 @@ def vigenere_decrypt(message, keyword):
     decrypted = ""
     keyword = keyword.upper()
     keyword_length = len(keyword)
+    x=0
 
     for i, character in enumerate(message):
         if character in alphabet:
             number = alphabet.find(character)
-            keyword_char = keyword[i % keyword_length]
+            keyword_char = keyword[x % keyword_length]
             keyword_shift = alphabet.find(keyword_char)
             number = (number - keyword_shift) % len(alphabet)
             decrypted = decrypted + alphabet[number]
+            x+=1
         else:
             decrypted = decrypted + character
     return decrypted   
@@ -77,7 +79,7 @@ def main():
 
     elif menu == 2:
         message = input("Enter the text to decrypt: ").upper()
-        shift = int(input("Enter the shift used for encryption: "))
+        shift = int(input("Enter the shift used for decryption: "))
         decrypted = caesar_decrypt(message, shift)
         print("Decrypted message:", decrypted)
 
@@ -89,7 +91,7 @@ def main():
 
     elif menu == 4:
         message = input("Enter the text to decrypt: ").upper()
-        keyword = input("Enter the keyword used for encryption: ").upper()
+        keyword = input("Enter the keyword used for decryption: ").upper()
         decrypted = vigenere_decrypt(message, keyword)
         print("Decrypted message:", decrypted)
 
