@@ -25,7 +25,8 @@ def caesar_decrypt(message, shift):
                 decrypted = decrypted + alphabet[number]
             else:
                 decrypted = decrypted + character
-        print('Shift value %s \n Message: %s' % (shift, decrypted))
+        print('\nShift value: %s \n\nMessage: %s' % (shift, decrypted)) 
+
 
 
 # Vigenere encryption function
@@ -81,19 +82,19 @@ def main():
         message = input("Enter the text to decrypt: ").upper()
         shift = int(input("Enter the shift used for decryption: "))
         decrypted = caesar_decrypt(message, shift)
-        print("Decrypted message:", decrypted)
+        print("Decrypted message: ", decrypted)
 
     elif menu == 3:
         message = input("Enter the text to encrypt: ").upper()
         keyword = input("Enter the keyword for encryption: ").upper()
         encrypted = vigenere_encrypt(message, keyword)
-        print("Encrypted message:", encrypted)
+        print("Encrypted message: ", encrypted)
 
     elif menu == 4:
         message = input("Enter the text to decrypt: ").upper()
         keyword = input("Enter the keyword used for decryption: ").upper()
         decrypted = vigenere_decrypt(message, keyword)
-        print("Decrypted message:", decrypted)
+        print("Decrypted message: ", decrypted)
 
 
 
